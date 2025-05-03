@@ -1,95 +1,181 @@
-How many environments?
-—--------------------------------
+Here's your content formatted into a clean and professional `.md` (Markdown) file. You can use this in your GitHub README, documentation, or blog post:
 
-Dev branch —> development
-Stg branch  —-> QA
-Master branch      —-> prod
-Release branch —-----> prod
-Feature branch  
+---
 
+````markdown
+# Git Branching and Merging Guide
 
-NOTE: By default we have master branch, we are not suppose to push code directly into the master branch.
+## Environments and Branch Mapping
 
-git branch —-> List the branches, create, delete and rename the branches.
+| Branch Name      | Environment      |
+|------------------|------------------|
+| `dev`            | Development      |
+| `stg`            | QA (Staging)     |
+| `master`         | Production       |
+| `release`        | Production       |
+| `feature/*`      | Feature/Dev Work |
 
-How to list branch names?
+> **Note:** By default, we have a `master` branch. Do **not** push code directly to the `master` branch.
 
+---
+
+## Common Git Branch Commands
+
+### How to list branch names
+```bash
 git branch
+````
 
-How to  create a branch?
+### How to create a branch
 
-git branch <branch name>
+```bash
+git branch <branch-name>
+```
 
-How to switch from one branch to another branch?
+### How to switch branches
 
-git checkout <branch name>
+```bash
+git checkout <branch-name>
+```
 
-Explain the merging concept
-=======================
+### Create and switch to a new branch in one command
 
-Step 1: go to development branch from master, git checkout development.
-  NOTE: By default all the files of master branch moved to development branch becz we created dev branch from master branch.
+```bash
+git checkout -b <branch-name>
+```
 
-Step 2: Take one file and update in the dev branch and do the commit.
+---
 
-Step 3: come back to master and check the file is updated or not, It will not updated.
+## Merging Concept Explained
 
-Step 4: from master —> git diff development
-Step 5: from master —> git merge development
-Step 6: see the file is merged or not.
+1. **Checkout to `development` from `master`:**
 
+   ```bash
+   git checkout development
+   ```
 
-What is merge conflict?
+   > Dev branch usually has all files from `master` if created from `master`.
 
-When two developers are updating same file and same line, Then we are getting merge conflict.
+2. **Update a file in `development`, then commit:**
 
-Step 1: update the file in master branch and commit the changes.
+   ```bash
+   git add <file>
+   git commit -m "Updated file in dev"
+   ```
 
-Step 2: update the same file in development branch and commit the changes.
+3. **Switch back to `master` and verify changes:**
 
-Step 3: goto master , apply git merge development
+   ```bash
+   git checkout master
+   ```
 
-Step 4: remove the unused lines and then commit the changes.
+4. **See differences between `master` and `development`:**
 
+   ```bash
+   git diff development
+   ```
 
-How to switch a branch, while creating it self?
+5. **Merge `development` into `master`:**
 
-Git checkout -b stage
+   ```bash
+   git merge development
+   ```
 
-How to push all branches from local repo to remote repo?
+6. **Verify that the file is merged.**
 
-Git push <alis name> branch1 branch2
-Git push <alias name> –all
+---
 
-How to create a branch in a remote repo?
+## Merge Conflict
 
-Ans: Go and create in remote repo
+**Occurs when two developers update the same file and the same line.**
 
+### Steps:
 
-How to get updated code from remote branch?
+1. Update and commit a file in `master`.
+2. Update the same file in `development` and commit.
+3. Switch to `master` and merge `development`:
 
-Git pull <alias name> branch name
+   ```bash
+   git merge development
+   ```
+4. Resolve the conflict manually, remove unused lines, then:
 
-How to see the remote branches?
+   ```bash
+   git add <conflicted-file>
+   git commit -m "Resolved merge conflict"
+   ```
 
-Git branch -r
+---
 
+## Remote Branch Operations
 
-How to see all the branches(local and remote)?
+### Push specific branches to remote
 
-Git branch -a
+```bash
+git push <alias> branch1 branch2
+```
 
+### Push all branches to remote
 
+```bash
+git push <alias> --all
+```
 
-How to rename branch?
+### Create a remote branch
 
-git branch -m old new
+> Go to your remote repository (e.g., GitHub/GitLab) and create it manually.
 
-How to delete a branch in local repo?
+### Pull latest changes from a remote branch
 
-Git branch -d <branchname>  —-> Current pointing branch will not be deleted.
+```bash
+git pull <alias> <branch-name>
+```
 
+### View remote branches
 
-How to delete remote repo branch from local?
+```bash
+git branch -r
+```
 
-Git push <alisas name>  : <branch name>
+### View all branches (local + remote)
+
+```bash
+git branch -a
+```
+
+---
+
+## Branch Management
+
+### Rename a local branch
+
+```bash
+git branch -m old-name new-name
+```
+
+### Delete a local branch
+
+```bash
+git branch -d <branch-name>
+```
+
+> Note: You cannot delete the branch you're currently on.
+
+### Delete a remote branch from local
+
+```bash
+git push <alias> :<branch-name>
+```
+
+> Example:
+>
+> ```bash
+> git push origin :feature-xyz
+> ```
+
+---
+
+```
+
+Would you like a downloadable `.md` file version of this?
+```
