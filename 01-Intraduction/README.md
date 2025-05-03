@@ -37,9 +37,9 @@ Below is a list of widely used SCM tools:
 
 ### ✅ Step 1: Create a GitHub Account
 
-- **Email**: `kkeducationblr@gmail.com`
+- **Email**: `haripydiabc@gmail.com`
 - **Password**: `P@a`
-- **Username**: `kkeducation1234567`
+- **Username**: `HarikrishnaPydi`
 - **Public URL**: [https://github.com/](https://github.com/)
 - **Enterprise URL**: [https://airtel.github.com/](https://airtel.github.com/)
 
