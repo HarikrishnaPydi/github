@@ -119,9 +119,6 @@ git push --force
 
 ---
 
-📘 Maintained by: **KK FUNDA – DevOps & Cloud Training**  
-📞 Contact: 9676831734  
-📂 Use for: Classroom teaching, DevOps interviews, and student projects.
 
 ```
 
